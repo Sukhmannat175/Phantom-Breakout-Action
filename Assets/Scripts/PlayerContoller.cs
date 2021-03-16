@@ -38,11 +38,10 @@ public class PlayerContoller : MonoBehaviour
 
         // Shooting
         
-        if(Input.GetAxis("Fire1")>0 && timer>fireRate)
+        if(Input.GetAxis("Fire1")>0 && timer>=fireRate)
         {
             GameObject powerBlast;
             powerBlast = GameObject.Instantiate(PowerBlast, blastSpawn.transform.position, blastSpawn.transform.rotation);
-
             timer = 0;
         }
         timer += Time.deltaTime;
