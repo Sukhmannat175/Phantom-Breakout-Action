@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class PlayerContoller : MonoBehaviour
 {
-    public float speed;
+    public float speed, fireRate;
     public Animator anim;
     public GameObject blastSpawn, PowerBlastRight, PowerBlastLeft, PowerBlastUp, PowerBlastDown;
-    public float fireRate;
-
-    private float timer = 0;
+    
+    public float timer = 0, key = 0, sacrifices = 0;
 
     void Update()
     {
@@ -56,7 +55,7 @@ public class PlayerContoller : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             spawnPos.x = 0;
-            spawnPos.y = 1.5f;
+            spawnPos.y = 1.8f;
         }
 
         if (Input.GetKey(KeyCode.S))
@@ -85,7 +84,7 @@ public class PlayerContoller : MonoBehaviour
                 powerBlast = GameObject.Instantiate(PowerBlastLeft, blastSpawn.transform.position, blastSpawn.transform.rotation);
             }
             
-            else if (spawnPos.y == 1.5f)
+            else if (spawnPos.y == 1.8f)
             {
                 powerBlast = GameObject.Instantiate(PowerBlastUp, blastSpawn.transform.position, blastSpawn.transform.rotation);
             }
@@ -97,7 +96,47 @@ public class PlayerContoller : MonoBehaviour
             timer = 0;
         }
         timer += Time.deltaTime;
-
-
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Key"))
+        {
+            Destroy(other.gameObject);
+            key += 1;
+        }
+
+        if (other.gameObject.CompareTag("Portal"))
+        {
+            Destroy(other.gameObject);
+            sacrifices += 1;
+        }
+
+        if (other.gameObject.CompareTag("Power Up"))
+        {
+            Destroy(other.gameObject);
+        }
+        
+        if (other.gameObject.CompareTag("Orb") && sacrifices == 2)
+        {
+            Time.timeScale = 0;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Open Door"))
+        {
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Closed Door") && key > 0)
+        {
+            Destroy(other.gameObject);
+            key--;
+        }
+    }
+
+    
+        
 }
