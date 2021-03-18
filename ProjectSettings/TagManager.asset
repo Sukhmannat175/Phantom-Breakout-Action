@@ -12,6 +12,7 @@ TagManager:
   - Closed Door
   - Key
   - Portal
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 

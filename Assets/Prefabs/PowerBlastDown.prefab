@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2848269392755600739}
   - component: {fileID: 5806826032814272060}
   - component: {fileID: 5696069182842464458}
+  - component: {fileID: -3267503441775344459}
   m_Layer: 0
   m_Name: PowerBlastDown
   m_TagString: Untagged
@@ -169,3 +170,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 844d8888d374fc046ad70a3c18c06f14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3267503441775344459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308390420323822215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c1ab841f0f05f40a11d1f81c2f0f79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 6933374345723648482, guid: b4c86f45ff004b34e86551fdfe8dcbc1, type: 3}
