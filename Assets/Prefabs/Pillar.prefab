@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6360635519386397133}
   - component: {fileID: 1078856064008936540}
-  - component: {fileID: -5179386354223876848}
+  - component: {fileID: 1218042845692569918}
   m_Layer: 0
   m_Name: Pillar
   m_TagString: Untagged
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1538346219625064611, guid: d15f618c39d396e40b851518b3138736, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -83,8 +83,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &-5179386354223876848
-PolygonCollider2D:
+--- !u!61 &1218042845692569918
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,7 +95,7 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -106,9 +106,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.024999999, y: 0.08}
-      - {x: -0.024999999, y: -0.08}
-      - {x: 0.024999999, y: -0.08}
-      - {x: 0.024999999, y: 0.08}
+  serializedVersion: 2
+  m_Size: {x: 0.05, y: 0.16}
+  m_EdgeRadius: 0

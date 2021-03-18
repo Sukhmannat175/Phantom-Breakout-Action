@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
-    public float speed;
+    public float xSpeed, ySpeed;
     void Update()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0f); 
+        GetComponent<Rigidbody2D>().velocity = new Vector2(xSpeed, ySpeed); 
     }
 }
