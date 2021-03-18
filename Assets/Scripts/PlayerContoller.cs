@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerContoller : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class PlayerContoller : MonoBehaviour
     public GameObject blastSpawn, PowerBlastRight, PowerBlastLeft, PowerBlastUp, PowerBlastDown;
     
     public float timer = 0, key = 0, sacrifices = 0;
+
+    public int countCollision = 0;
+    public GameObject gameOverText;
 
     void Update()
     {
@@ -135,8 +139,19 @@ public class PlayerContoller : MonoBehaviour
             Destroy(other.gameObject);
             key--;
         }
-    }
 
-    
-        
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            countCollision++;
+            Debug.Log("Collide with enemy" + countCollision);
+        }
+
+        if(countCollision >= 3)
+        {
+            gameOverText.SetActive(true);
+            Time.timeScale = 0;
+          
+
+        }
+    }
 }
