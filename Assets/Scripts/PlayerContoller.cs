@@ -12,7 +12,7 @@ public class PlayerContoller : MonoBehaviour
     public float timer = 0, key = 0, sacrifices = 0;
 
     public int countCollision = 0;
-    public GameObject gameOverText;
+    public GameObject gameOverText, gameWinText;
 
     void Update()
     {
@@ -123,6 +123,7 @@ public class PlayerContoller : MonoBehaviour
         
         if (other.gameObject.CompareTag("Orb") && sacrifices == 2)
         {
+            gameWinText.SetActive(true);
             Time.timeScale = 0;
         }
     }
@@ -143,15 +144,12 @@ public class PlayerContoller : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             countCollision++;
-            Debug.Log("Collide with enemy" + countCollision);
         }
 
-        if(countCollision >= 3)
+        if(countCollision == 3)
         {
             gameOverText.SetActive(true);
             Time.timeScale = 0;
-          
-
         }
     }
 }
