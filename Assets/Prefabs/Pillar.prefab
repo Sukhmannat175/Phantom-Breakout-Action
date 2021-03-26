@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6360635519386397133}
   - component: {fileID: 1078856064008936540}
-  - component: {fileID: 1218042845692569918}
+  - component: {fileID: 6705493988899811535}
   m_Layer: 0
   m_Name: Pillar
   m_TagString: Untagged
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1218042845692569918
+--- !u!61 &6705493988899811535
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,5 +107,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.04, y: 0.16}
+  m_Size: {x: 0.05, y: 0.16}
   m_EdgeRadius: 0
