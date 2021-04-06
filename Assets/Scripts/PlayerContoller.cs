@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerContoller : MonoBehaviour
 {
+    
     public float speed, fireRate;
     public Animator anim;
     public GameObject blastSpawn, PowerBlastRight, PowerBlastLeft, PowerBlastUp, PowerBlastDown;
@@ -13,6 +14,11 @@ public class PlayerContoller : MonoBehaviour
 
     public int countCollision = 0;
     public GameObject gameOverText, gameWinText;
+    public AudioClip keyPickUp;
+    public AudioClip portal;
+    public AudioClip orb;
+    public AudioClip powerUp;
+
 
     void Update()
     {
@@ -108,23 +114,27 @@ public class PlayerContoller : MonoBehaviour
         {
             Destroy(other.gameObject);
             key += 1;
+            AudioSource.PlayClipAtPoint(keyPickUp, transform.position);
         }
 
         if (other.gameObject.CompareTag("Portal"))
         {
             Destroy(other.gameObject);
             sacrifices += 1;
+            AudioSource.PlayClipAtPoint(portal, transform.position);
         }
 
         if (other.gameObject.CompareTag("Power Up"))
         {
             Destroy(other.gameObject);
+            AudioSource.PlayClipAtPoint(powerUp, transform.position);
         }
         
         if (other.gameObject.CompareTag("Orb") && sacrifices == 2)
         {
             gameWinText.SetActive(true);
             Time.timeScale = 0;
+            AudioSource.PlayClipAtPoint(orb, transform.position);
         }
     }
 
