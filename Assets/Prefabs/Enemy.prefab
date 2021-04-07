@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8912642899671181438}
   - component: {fileID: 5247344601501663230}
   - component: {fileID: -7852061139168893555}
+  - component: {fileID: -5552253543973334263}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -136,3 +137,19 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   moveSpeed: 2
+--- !u!114 &-5552253543973334263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912642899671181439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47967d1b49b459e46abd89a689392ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 6933374345723648482, guid: b4c86f45ff004b34e86551fdfe8dcbc1, type: 3}
+  Audiopart: {fileID: 8300000, guid: cbe9b969707bf9a43be985b454c54994, type: 3}
+  Audiofull: {fileID: 8300000, guid: 825a0943c561feb42acf0762d053bf5d, type: 3}
+  enemyHP: 2
