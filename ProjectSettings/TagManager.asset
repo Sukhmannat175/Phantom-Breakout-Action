@@ -13,6 +13,8 @@ TagManager:
   - Key
   - Portal
   - Enemy
+  - PowerBlast
+  - EnemyAttack
   - Shield
   - Health
   - Sacrifice

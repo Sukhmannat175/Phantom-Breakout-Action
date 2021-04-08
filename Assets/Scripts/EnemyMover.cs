@@ -11,6 +11,8 @@ public class EnemyMover : MonoBehaviour
     float moveSpeed = 2.0f;
     int waypointIndex = 0;
 
+
+
     // Start is called before the first frame update
     void Start()
     {

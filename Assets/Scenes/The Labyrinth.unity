@@ -11237,7 +11237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d422706bee5f0049b66cf2b0ed15408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 2
   fireRate: 1.75
   anim: {fileID: 818800469}
   blastSpawn: {fileID: 450633555}
