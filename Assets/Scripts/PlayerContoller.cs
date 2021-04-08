@@ -19,8 +19,8 @@ public class PlayerContoller : MonoBehaviour
     public AudioClip orb;
     public AudioClip powerUp;
 
-   
-
+    public int enemyAttackValue = 2;
+    public int characterLife = 3;
     void Update()
     {
         Movement();
@@ -157,7 +157,14 @@ public class PlayerContoller : MonoBehaviour
             countCollision++;
         }
 
-        if(countCollision == 3)
+        if (other.gameObject.CompareTag("EnemyAttack"))
+        {
+            countCollision = countCollision + enemyAttackValue;
+            Debug.Log("Character life:" + countCollision);
+        }
+
+
+        if (countCollision == characterLife)
         {
             gameOverText.SetActive(true);
             Time.timeScale = 0;
