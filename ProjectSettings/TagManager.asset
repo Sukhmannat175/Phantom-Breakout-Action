@@ -11,13 +11,14 @@ TagManager:
   - Open Door
   - Closed Door
   - Key
-  - Portal
   - Enemy
   - PowerBlast
   - EnemyAttack
   - Shield
   - Health
   - Sacrifice
+  - BossController
+  - Enemy Attack
   layers:
   - Default
   - TransparentFX

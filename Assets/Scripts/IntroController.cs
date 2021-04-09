@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 public class IntroController : MonoBehaviour
 {
     [Header("GamePlay")]
-    public float startWait;    
-    public GameObject blackBoard;
+    public float startWait;        
 
     [Header("UI")]
     public GameObject sacrificeText;
@@ -35,7 +34,7 @@ public class IntroController : MonoBehaviour
     }
     IEnumerator startGame()
     {
-        yield return new WaitForSeconds(startWait);
+        yield return new WaitForSeconds(1);
         introOrbText.SetActive(true);        
 
         yield return new WaitForSeconds(startWait);

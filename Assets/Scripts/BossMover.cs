@@ -51,7 +51,6 @@ public class BossMover : MonoBehaviour
             //3%4 =3
             //4%4 = 0
             currentPoint = (currentPoint + 1) % 4;
-
         }
     }
    
