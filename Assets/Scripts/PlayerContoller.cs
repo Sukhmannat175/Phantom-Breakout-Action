@@ -15,14 +15,22 @@ public class PlayerContoller : MonoBehaviour
     public float timer = 0, key = 0, sacrifices = 0;
 
     public int countCollision = 0;
-    
+
+    public AudioClip BackMusic;
     public AudioClip keyPickUp;
     public AudioClip portal;
     public AudioClip orb;
     public AudioClip powerUp;
+    public AudioClip sacrificePickUp;
 
-    public GameController gameControllerScript;   
- 
+    
+
+    public GameController gameControllerScript;
+
+    private void Start()
+    {
+        AudioSource.PlayClipAtPoint(BackMusic, transform.position);
+    }
     void Update()
     {
         GameObject gameControllerObject = GameObject.FindWithTag("GameController");
@@ -176,12 +184,13 @@ public class PlayerContoller : MonoBehaviour
             speed = 1.5f;
             Time.timeScale = 1;
             sacrifices++;
-            AudioSource.PlayClipAtPoint(keyPickUp, transform.position);            
+            AudioSource.PlayClipAtPoint(sacrificePickUp, transform.position);            
             gameControllerScript.BackToMaze();
         }
 
         if (other.gameObject.CompareTag("Orb") && sacrifices == 2)     
-        {            
+        {
+            
             AudioSource.PlayClipAtPoint(orb, transform.position);
             Destroy(other.gameObject);
             gameControllerScript.GameWin();

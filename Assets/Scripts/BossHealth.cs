@@ -7,10 +7,17 @@ public class BossHealth : MonoBehaviour
     public GameObject explosion;
     public GameObject sacrifice;
     public AudioClip Audiopart;
-    public AudioClip Audiofull;
+    public AudioClip deathSound;
+
+    public AudioSource audioSource;
+   
 
     public int enemyHP = 2;
     public GameController gameControllerScript;
+    void Start()
+    {
+        
+    }
 
     //other is powerBlast
     private void OnCollisionEnter2D(Collision2D other)
@@ -25,9 +32,12 @@ public class BossHealth : MonoBehaviour
             {
                 Instantiate(explosion, transform.position, Quaternion.identity);
                 Instantiate(sacrifice, transform.position, Quaternion.identity);
+                audioSource.Stop();
+                AudioSource.PlayClipAtPoint(deathSound, transform.position);
                 Destroy(other.gameObject);
                 Destroy(this.gameObject);
-                AudioSource.PlayClipAtPoint(Audiofull, transform.position);
+                
+
             }
         }
     }

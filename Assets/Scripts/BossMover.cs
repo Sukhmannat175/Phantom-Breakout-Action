@@ -17,11 +17,12 @@ public class BossMover : MonoBehaviour
     public GameObject hazard;
     public Vector2 spawnValue;
     public float timeBetweenAttack = 3.0f;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
