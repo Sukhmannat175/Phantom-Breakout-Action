@@ -6,17 +6,20 @@ public class BossHealth : MonoBehaviour
 {
     public GameObject explosion;
     public GameObject sacrifice;
+    public GameObject lights;
     public AudioClip Audiopart;
-    public AudioClip deathSound;
-
-    public AudioSource audioSource;
-   
+    public AudioClip deathSound;   
 
     public int enemyHP = 2;
     public GameController gameControllerScript;
-    void Start()
+
+    void Update()
     {
-        
+        if (Time.timeScale == 0)
+        {
+            GetComponent<AudioSource>().Stop();
+            lights.SetActive(false);
+        }
     }
 
     //other is powerBlast
@@ -31,13 +34,10 @@ public class BossHealth : MonoBehaviour
             if(enemyHP == 0)
             {
                 Instantiate(explosion, transform.position, Quaternion.identity);
-                Instantiate(sacrifice, transform.position, Quaternion.identity);
-                audioSource.Stop();
+                Instantiate(sacrifice, transform.position, Quaternion.identity);                
                 AudioSource.PlayClipAtPoint(deathSound, transform.position);
                 Destroy(other.gameObject);
                 Destroy(this.gameObject);
-                
-
             }
         }
     }

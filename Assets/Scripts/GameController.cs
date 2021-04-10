@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
     public GameObject gameWinText;
     public GameObject gameOverText;    
     public GameObject exitText;
+    public AudioClip death;
 
     [Header("Scene")]
     public GameObject mainCam;
@@ -36,7 +37,7 @@ public class GameController : MonoBehaviour
     private int lives = 3, armour = 2, keys = 0, sacrifices = 0;        
     private bool shield = false;
     private bool portal1 = false, portal2 = false;
-
+    
     void Start()
     {
         
@@ -250,69 +251,10 @@ public class GameController : MonoBehaviour
         Sacrifice();
     }
 
-    public void ResetScene()
-    {
-        gameOverText.SetActive(false);
-        exitText.SetActive(false);
-        followCam.SetActive(true);
-        enemies.SetActive(true);
-        waypoints.SetActive(true);
-        entities.SetActive(true);
-        border.SetActive(true);
-        maze.SetActive(true);
-        background.SetActive(true);
-        lights.SetActive(true);
-
-        sacrificeText.text = "Sacrifices:" + sacrifices;
-        keyText.text = "Keys:" + keys;
-        lifeText.text = "Lives:" + lives;
-
-        mainCam.GetComponent<Camera>().orthographicSize = 1.5f;
-        Vector3 camPos = mainCam.transform.localPosition;
-        camPos.x = 6.29f;
-        camPos.y = 3.5f;
-        mainCam.transform.localPosition = camPos;
-
-        Vector3 charPos = character.transform.localPosition;
-        charPos.x = -6.29f;
-        charPos.y = 3.5f;
-        character.transform.localPosition = charPos;
-
-        Vector3 scale = character.transform.localScale;
-        scale.x = 0.2f;
-        scale.y = 0.2f;
-        scale.z = 0.2f;
-        character.transform.localScale = scale;
-
-        Vector3 scale1 = PowerBlastLeft.transform.localScale;
-        scale1.x = 0.25f;
-        scale1.y = 0.25f;
-        scale1.z = 0.25f;
-        PowerBlastLeft.transform.localScale = scale1;
-
-        Vector3 scale2 = PowerBlastRight.transform.localScale;
-        scale2.x = 0.25f;
-        scale2.y = 0.25f;
-        scale2.z = 0.25f;
-        PowerBlastRight.transform.localScale = scale2;
-
-        Vector3 scale3 = PowerBlastDown.transform.localScale;
-        scale3.x = 0.25f;
-        scale3.y = 0.25f;
-        scale3.z = 0.25f;
-        PowerBlastDown.transform.localScale = scale3;
-
-        Vector3 scale4 = PowerBlastUp.transform.localScale;
-        scale4.x = 0.25f;
-        scale4.y = 0.25f;
-        scale4.z = 0.25f;
-        PowerBlastUp.transform.localScale = scale4;
-
-        SceneManager.LoadScene("The Labyrinth 2");
-    }
-
     public void GameOver()
     {
+        character.GetComponent<AudioSource>().Stop();
+        AudioSource.PlayClipAtPoint(death, transform.position);
         gameOverText.SetActive(true);
         exitText.SetActive(true);
         lights.SetActive(false);
